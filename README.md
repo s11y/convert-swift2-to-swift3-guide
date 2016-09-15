@@ -7,68 +7,44 @@
 AppDelegateの最初の状態がSwift3で以下のように変わります。
 
 ### コード
-```Swift3
+```Swift3: AppDelegate.swift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-      return true
-    }
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool { return true }
 
-    func applicationWillResignActive(_ application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) { }
 
-    }
+    func applicationDidEnterBackground(_ application: UIApplication) { }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) { }
 
-    }
+    func applicationDidBecomeActive(_ application: UIApplication) { }
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-
-    }
+    func applicationWillTerminate(_ application: UIApplication) { }
 }
 ```
 
 Swift2までは以下の通りでした。
-```swift2
+```swift2: AppDelegate.swift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-      return true
-    }
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool { return true }
 
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(application: UIApplication) { }
 
-    }
+    func applicationDidEnterBackground(application: UIApplication) { }
 
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationWillEnterForeground(application: UIApplication) { }
 
-    }
+    func applicationDidBecomeActive(application: UIApplication) { }
 
-    func applicationWillEnterForeground(application: UIApplication) {
-
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-
-    }
+    func applicationWillTerminate(application: UIApplication) { }
 }
 ```
 
