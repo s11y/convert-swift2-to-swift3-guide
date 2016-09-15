@@ -72,6 +72,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
+### 変更点
+- メソッドの第一引数の外部引数名にアンダーバー(_)追加
+- application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Boolの第二引数が、didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?に変更
+
 ### 理由
 Swift3では、第一引数でも外部引数名に、```_ ```を設定しない場合、呼び出し時に第一引数を書くことが必須になります。
 
