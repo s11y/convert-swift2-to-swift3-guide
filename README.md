@@ -58,12 +58,78 @@ Swift3では、第一引数でも外部引数名に、```_ ```を設定しない
 例、
 ```Swift3
 // 定義時
-func hoge(num: Int)  {
-
-}
+func hoge(num: Int) {　}
 
 // 呼び出し時
 self.hoge(num: 0)
 ```
 
-## TableView
+## UITableView
+UITableViewにおける変更点としては、UITableViewDelegate、UITableViewDataSource、registerNibのメソッドの変更点が一番大きいと思います。
+
+### コード
+Swift3では、以下のようなコードに変更されました。
+```swift3:ViewController.swift
+import UIKit
+
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    @IBOutlet var table: UITableView!
+
+    let stringArr: [String] = ["test", "test", "test"]
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        table.delegate = self
+        table.dataSource = self
+
+        table.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
+
+        cell.label.text = stringArr[indexPath.row]
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stringArr.count
+    }
+}
+```
+
+Swift2では、以下のようなコードでした。
+```swift2:ViewController.swift
+import UIKit
+
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    @IBOutlet var table: UITableView!
+
+    let stringArr: [String] = ["test", "test", "test"]
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        table.delegate = self
+        table.dataSource = self
+
+        table.registerNib(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stringArr.count
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell: TableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! TableViewCell
+
+        cell.label.text = stringArr[indexPath.row]
+
+        return cell
+    }
+}
+```
+
+### 変更点
