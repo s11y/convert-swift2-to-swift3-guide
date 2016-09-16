@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ### 変更点
 - メソッドの第一引数の外部引数名にアンダーバー(_)追加
-- application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Boolの第二引数が、didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?に変更
+- ```application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool```の第二引数が、```didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?```に変更
 
 ### 理由
 Swift3では、第一引数でも外部引数名に、```_ ```を設定しない場合、呼び出し時に第一引数を書くことが必須になります。
@@ -69,7 +69,7 @@ UITableViewにおける変更点としては、UITableViewDelegate、UITableView
 
 ### コード
 Swift3では、以下のようなコードに変更されました。
-```swift3:ViewController.swift
+```Swift:ViewController.swift
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -101,7 +101,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 ```
 
 Swift2では、以下のようなコードでした。
-```swift2:ViewController.swift
+```swift:ViewController.swift
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -133,3 +133,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 ```
 
 ### 変更点
+- cellの数を決めるdataSourceメソッドが、```tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell```から```tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell```に変更になりました。
+- 軽微な変更ではありますが、```tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int```の第一引数に外部引数名として、```_```が追加されました。
+- ```registerNib```のメソッド名も、```register```に変更になりました。同様に、```dequeueReusableCellWithIdentifier```というメソッド名も、```dequeueReusableCell(withIdentifier:)```になりました。
+
+### 理由
+- Swift3では、NSIndexPathではなく、IndexPathという構造体に変更になりました。
