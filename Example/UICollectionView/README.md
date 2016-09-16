@@ -1,0 +1,1 @@
+## UICollectionViewの変更点
