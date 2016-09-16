@@ -7,6 +7,7 @@
 AppDelegateの最初の状態がSwift3で以下のように変わります。
 
 ### コード
+
 ```Swift3: AppDelegate.swift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ```
 
 Swift2までは以下の通りでした。
+
 ```swift2: AppDelegate.swift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
