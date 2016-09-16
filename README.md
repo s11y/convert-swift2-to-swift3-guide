@@ -68,6 +68,7 @@ self.hoge(num: 0)
 UITableViewにおける変更点としては、UITableViewDelegate、UITableViewDataSource、registerNibのメソッドの変更点が一番大きいと思います。
 
 ### コード
+
 Swift3では、以下のようなコードに変更されました。
 ```Swift:ViewController.swift
 import UIKit
@@ -101,6 +102,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 ```
 
 Swift2では、以下のようなコードでした。
+
 ```swift:ViewController.swift
 import UIKit
 
