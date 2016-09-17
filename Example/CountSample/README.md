@@ -2,6 +2,7 @@
 
 # メソッドの外部引数名
 ViewController.swiftのchangeColorメソッドの呼び出し方でわかるとおり、Swift3では、外部引数名を指定しない場合、第一引数でも内部引数が呼び出し時に引数名として付きます。
+
 例、Swift3
 ```swift
 func changeColor(number: Int) { }
